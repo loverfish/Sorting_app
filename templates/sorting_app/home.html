@@ -1,10 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>greeting</title>
-</head>
-<body>
-    <h1>Greeting!!</h1>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container mb-4 mt-3">
+        <h1>Greeting!</h1>
+    </div>
+    <div class="container mb-2">
+        {% for elem in start_list %}
+            {{ elem }}
+        {% endfor %} <br>
+    </div>
+    <div class="container mb-2">
+        {% for elem in sort_list %}
+            {{ elem }}
+        {% endfor %} <br>
+    </div>
+<div class="container">
+    <p>
+        We use {{ type|title }} type of sorting <br>
+        Time of sorting is {{ time_to_sort }} sec.
+    </p>
+
+
+
+    {{post}}
+</div>
+
+{% endblock %}

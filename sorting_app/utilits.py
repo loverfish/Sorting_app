@@ -6,13 +6,13 @@ def my_shiny_new_decorator(a_function_to_decorate):
     def the_wrapper_around_the_original_function(*args):
         import time
         tic = time.perf_counter()
-        t_new = time.process_time()
+        # t_new = time.process_time()
         res = a_function_to_decorate(*args)
 
         toc = time.perf_counter()
-        print(f'sorting in {toc - tic:0.8f} sec')
+
         t = '{:0.6f}'.format(toc - tic)
-        return res, t, '{:0.6f}'.format(time.process_time() - t_new)
+        return res, t
     return the_wrapper_around_the_original_function
 
 
@@ -120,3 +120,17 @@ def create_file(my_file, n):
 def read_file(my_file):
     with open(my_file, 'r') as f:
         return [int(x) for x in f.readline().split()]
+
+
+algorithms = {
+    'BS': bubble_sort,
+    'IS': insertion_sort,
+    'MS': new_sort,
+}
+
+
+alg_types = {
+    'BS': 'bubble sort',
+    'IS': 'insertions sort',
+    'MS': 'merge sort',
+}
