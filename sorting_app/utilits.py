@@ -6,11 +6,8 @@ def my_shiny_new_decorator(a_function_to_decorate):
     def the_wrapper_around_the_original_function(*args):
         import time
         tic = time.perf_counter()
-        # t_new = time.process_time()
         res = a_function_to_decorate(*args)
-
         toc = time.perf_counter()
-
         t = '{:0.6f}'.format(toc - tic)
         return res, t
     return the_wrapper_around_the_original_function
@@ -24,7 +21,6 @@ def bubble_sort(array):
         for j in range(len(array) - i - 1):
             if array[j] > array[j + 1]:
                 array[j], array[j + 1] = array[j + 1], array[j]
-    # print(array)
     return array
 
 
@@ -111,7 +107,6 @@ def merge_sort(nums):
 
 def create_file(my_file, n):
     with open(my_file, "w") as outFile:
-        # outFile.writelines([x for x in random.sample(range(-1000,1001),n)])
         outFile.writelines(['{} '.format(random.randint(0, 500)) for _ in range(n)])
 
 

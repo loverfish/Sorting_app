@@ -21,20 +21,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.file.name
-
-
-# class Algorithm(models.Model):
-#     BUBLE_SORT = 'BS'
-#     OTHER_SORT = 'OS'
-#     ALGORITHM_TYPE_CHOICES = [
-#         (BUBLE_SORT, 'Buble sort'),
-#         (OTHER_SORT, 'Other sort'),
-#     ]
-#
-#     upload_file = models.FileField(upload_to='files/')
-#     algorithm_type = models.CharField(
-#         max_length=2,
-#         choices=ALGORITHM_TYPE_CHOICES,
-#         default=BUBLE_SORT
-#     )
-#     sorted_list = models.TextField()

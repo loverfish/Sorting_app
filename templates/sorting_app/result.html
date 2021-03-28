@@ -3,9 +3,17 @@
 {% block title %}Info{% endblock %}
 
 {% block content %}
-    {{ info.file }} <br>
-    {{ info.algorithm_type }} <br>
-    {{ info.sorted_list }}<br>
-    {{ info.time_to_sort }}<br>
 
+    <div class="container">
+        <h1 class="mb-5">Result</h1>
+        <p>Upload filename: {{ start_name }}</p>
+        <p>
+            Input list: <br> {{ start_list }}
+        </p>
+        <p>
+            Type of sorting: {{ algorithm_type|title }}<br>Time of sorting: {{ info.time_to_sort }} sec.
+        <p>
+            Output list: <br> {{ info.sorted_list }}
+        </p>
+    </div>
 {% endblock %}
