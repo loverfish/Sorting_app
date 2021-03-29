@@ -1,4 +1,8 @@
+import os
 import random
+from abc import ABC, abstractmethod
+
+from intetics.settings import BASE_DIR
 
 
 def my_decorator(a_function_to_decorate):
@@ -13,9 +17,11 @@ def my_decorator(a_function_to_decorate):
     return the_wrapper_around_the_original_function
 
 
-class Sorting:
+class Sorting(ABC):
+    @abstractmethod
     def sort(self, *args):
         pass
+        # assert False, 'action must be defined in child class!'
 
 
 class Bubble(Sorting):
@@ -103,7 +109,15 @@ class Merge(Sorting):
         return self.merge(left_list, right_list)
 
 
-#                           Функция генерирования файла со случайными числами в одну строку
+#                           Функция обработки скачанного фвйла
+
+def handle_uploaded_file(f):
+    with open(os.path.join(BASE_DIR, 'media/temp/new_f.txt'), 'wb+') as destination:
+        for chunk in f.chunks():
+            destination.write(chunk)
+
+
+#                           Функция генерации файла со случайными числами в одну строку
 
 def create_file(my_file, n):
     with open(my_file, "w") as outFile:

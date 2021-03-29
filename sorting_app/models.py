@@ -16,8 +16,10 @@ class Post(models.Model):
         choices=ALGORITHM_TYPE_SORT,
         default=BUBBLE_SORT,
     )
-    sorted_list = models.TextField(default=[1])
+    start_list = models.TextField(blank=True)
+    sorted_list = models.TextField(default=[])
     time_to_sort = models.FloatField()
+    title = models.CharField(max_length=50, blank=True)
 
     def __str__(self):
-        return self.file.name
+        return self.title
