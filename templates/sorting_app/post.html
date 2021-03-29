@@ -1,18 +1,13 @@
 {% extends 'base.html' %}
 
+{% block title %}Upload{% endblock %}
+
 {% block content %}
-    <h1>Upload</h1>
+    <h1 class="my-4">Upload and Sort</h1>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Upload</button>
+        <button type="submit" class="btn btn-success mt-4">Sort</button>
 
     </form>
-
-<!--<div class="mb-3">-->
-<!--    <label for="formFile" class="form-label">Default file input example</label>-->
-<!--    <input class="form-control" type="file" id="formFile">-->
-<!--</div>-->
-
-
 {% endblock %}

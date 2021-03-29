@@ -3,7 +3,7 @@
 {% block title %}Generate{% endblock %}
 
 {% block content %}
-    <h1 class="mb-4 mt-4">Generate file</h1>
+    <h1 class="my-4">Generate file</h1>
     <form action="{% url 'generate_file' %}" method="post">
         {% csrf_token %}
         {{ form.as_p}}

@@ -3,17 +3,23 @@
 {% block title %}Info{% endblock %}
 
 {% block content %}
-
+    <h1 class="my-4">Result</h1>
+    {% for info in results %}
     <div class="container">
-        <h1 class="mb-5">Result</h1>
-        <p>Upload filename: {{ start_name }}</p>
+        <p class="mx-3"> Filename: {{ info.title|title }}</p>
         <p>
-            Input list: <br> {{ start_list }}
+            Input list: <br> {{ info.start_list }}
         </p>
         <p>
-            Type of sorting: {{ algorithm_type|title }}<br>Time of sorting: {{ info.time_to_sort }} sec.
-        <p>
+            {% if algorithm_type %}
+            Type of sorting: {{ algorithm_type|title }}
+            {% else %}
+            Type of sorting: {{ info.algorithm_type|title }}
+            {% endif %}
+            <br>Time of sorting: {{ info.time_to_sort }} sec.
+        <p class="mb-5">
             Output list: <br> {{ info.sorted_list }}
         </p>
     </div>
+    {% endfor %}
 {% endblock %}
