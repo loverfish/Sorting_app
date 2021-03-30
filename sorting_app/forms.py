@@ -28,7 +28,7 @@ class GenerateForm(forms.Form):
         })
     )
     quantity = forms.IntegerField(
-        max_value=1000,
+        max_value=10000,
         label='Enter the number of values',
         widget=forms.NumberInput(attrs={
             'class': 'form-control mb-5',
