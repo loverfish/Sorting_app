@@ -5,10 +5,12 @@ class Post(models.Model):
     BUBBLE_SORT = 'BS'
     INSERTIONS_SORT = 'IS'
     MERGE_SORT = 'MS'
+    SELECTION_SORT = 'SS'
     ALGORITHM_TYPE_SORT = [
         (BUBBLE_SORT, 'BUBBLE_SORT'),
         (INSERTIONS_SORT, 'INSERTIONS_SORT'),
         (MERGE_SORT, 'MERGE_SORT'),
+        (SELECTION_SORT, 'SELECTION_SORT'),
     ]
     file = models.FileField(upload_to='files/')
     algorithm_type = models.CharField(

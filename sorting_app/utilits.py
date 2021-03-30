@@ -109,6 +109,22 @@ class Merge(Sorting):
         return self.merge(left_list, right_list)
 
 
+class Selection(Sorting):
+    @my_decorator
+    def sort(self, nums):
+        # Значение i соответствует кол-ву отсортированных значений
+        for i in range(len(nums)):
+            # Исходно считаем наименьшим первый элемент
+            lowest_value_index = i
+            # Этот цикл перебирает несортированные элементы
+            for j in range(i + 1, len(nums)):
+                if nums[j] < nums[lowest_value_index]:
+                    lowest_value_index = j
+            # Самый маленький элемент меняем с первым в списке
+            nums[i], nums[lowest_value_index] = nums[lowest_value_index], nums[i]
+        return nums
+
+
 #                           Функция обработки скачанного фвйла
 
 def handle_uploaded_file(f):
@@ -135,6 +151,7 @@ algorithms_class = {
     'BS': Bubble,
     'IS': Insertion,
     'MS': Merge,
+    'SS': Selection,
 }
 
 
@@ -142,4 +159,5 @@ alg_types = {
     'BS': 'bubble sort',
     'IS': 'insertions sort',
     'MS': 'merge sort',
+    'SS': 'selection sort',
 }
